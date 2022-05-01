@@ -1,0 +1,58 @@
+.itemList{
+    display:flex;
+    height: 70px;
+    align-items: center;
+    cursor: pointer;
+}
+.itemList:Hover{
+    background-color: #f5f5f5
+}
+.itemList__avatar{
+    height:50px;
+    width:50px;
+    border-radius: 25px;
+    margin-left: 15px;
+}
+.itemList__lines{
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    border-bottom: 1px solid #eee;
+    margin-right: 15px;
+    margin-left: 15px;
+   
+
+    flex-wrap: wrap;
+    min-width: 0px;
+
+}
+.itemList__line{
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+    width: 100%;
+    
+}
+.itemList__name{
+    font-size:17px;
+    color:#000;
+    font-weight:500;
+}
+.itemList__date{
+    font-size: 12px;
+    color:#9999
+}
+.itemList__lastMsg{
+    font-size: 14px;
+    color:#9999;
+    display: flex;
+    width: 100%;
+}
+.itemList__lastMsg p {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow:ellipsis;
+
+}

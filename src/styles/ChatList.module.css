@@ -1,0 +1,14 @@
+.chatList{
+    flex: 1;
+    background-color: #fff;
+    overflow-y: auto;
+}
+
+.chatList::-webkit-scrollbar{
+    width:6px;
+    width:6px;
+    border-radius:3px;
+}
+.chatList::-webkit-scrollbar-thumb{
+    background-color: rgba(0, 0, 0, 0.2);
+}
