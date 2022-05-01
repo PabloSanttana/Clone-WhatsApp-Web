@@ -5,5 +5,15 @@
     background-position: center;
     background-attachment: fixed;
     background-image: url("https://camo.githubusercontent.com/854a93c27d64274c4f8f5a0b6ec36ee1d053cfcd934eac6c63bed9eaef9764bd/68747470733a2f2f7765622e77686174736170702e636f6d2f696d672f62672d636861742d74696c652d6461726b5f61346265353132653731393562366237333364393131306234303866303735642e706e67");
-   
+   padding: 20px 30px;
+
 }
+
+.chatWindow__Body::-webkit-scrollbar{
+    width:6px;
+    width:6px;
+    border-radius:3px;
+  }
+  .chatWindow__Body::-webkit-scrollbar-thumb{
+    background-color: rgba(0, 0, 0, 0.2);
+  }

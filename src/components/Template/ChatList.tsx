@@ -44,7 +44,6 @@ export default function ChatList() {
 
   function handleSelectChat(item: Chat) {
     activeChat?.(item);
-    console.log(item);
   }
 
   return (

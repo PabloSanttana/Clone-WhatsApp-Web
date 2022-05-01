@@ -12,12 +12,37 @@ const EmojiPicker = dynamic(() => import("emoji-picker-react"), { ssr: false });
 import styles from "../../styles/ChatWindowFooter.module.css";
 
 export default function ChatWindowFooter() {
+  let recognition: any = null;
+  let speechRecognition: any =
+    window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  if (speechRecognition !== undefined) {
+    recognition = new speechRecognition();
+  }
   const [showEmoji, setShowEmoji] = useState(false);
   const [message, setMessage] = useState("");
+  const [listening, setListening] = useState(false);
 
   const onEmojiClick = (event: any, emojiObject: any) => {
     setMessage(message + emojiObject.emoji);
   };
+
+  function handleSendClick() {}
+
+  function handleMicClick() {
+    if (recognition !== null) {
+      recognition.onstart = () => {
+        setListening(true);
+      };
+      recognition.onend = () => {
+        setListening(false);
+      };
+      recognition.onresult = (e: any) => {
+        setMessage(e.results[0][0].transcript);
+      };
+      recognition.start();
+    }
+  }
 
   return (
     <>
@@ -68,12 +93,15 @@ export default function ChatWindowFooter() {
 
         <div className={styles.chatWindowFooter__pos}>
           {message.length > 0 ? (
-            <div className={styles.ChatWindow__button}>
+            <div
+              onClick={handleSendClick}
+              className={styles.ChatWindow__button}
+            >
               <SendIcon style={{ color: "#919191" }} />
             </div>
           ) : (
-            <div className={styles.ChatWindow__button}>
-              <MicIcon style={{ color: "#919191" }} />
+            <div onClick={handleMicClick} className={styles.ChatWindow__button}>
+              <MicIcon style={{ color: listening ? "#009688" : "#919191" }} />
             </div>
           )}
         </div>

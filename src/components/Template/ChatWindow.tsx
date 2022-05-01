@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import styles from "../../styles/ChatWindow.module.css";
 import appData from "../../data/hook/useAppData";
@@ -8,6 +8,7 @@ import ChatWindowFooter from "./ChatWindowFooter";
 
 export default function ChatWindow() {
   const { chatActive } = appData();
+
   return (
     <div className={styles.chatWindow}>
       <ChatHeader chat={chatActive} />
