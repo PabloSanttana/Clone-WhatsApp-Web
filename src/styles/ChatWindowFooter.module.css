@@ -1,0 +1,50 @@
+.chatWindow__emojiarea{
+    width:100%;
+    height:0px;
+    overflow-y:hidden;
+    transition: all ease 0.3s;
+}
+
+
+.chatWindowFooter{
+    display: flex;
+    height:62px;
+    justify-content:space-between;
+    align-items:center;
+
+    
+}
+.chatWindowFooter__pre{
+    display: flex;
+    padding:0px 15px;
+}
+.chatWindowFooter__inputarea{
+    flex:1;
+
+}
+.chatWindow__input{
+    width:100%;
+    height:40px;
+    border:0;
+    outline:0;
+    background-color:#fff;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #4a4a4a;
+    padding-left: 15px;
+}
+.chatWindowFooter__pos{
+    display: flex;
+    padding:0px 15px;
+}
+.ChatWindow__button{
+    width:40px;
+    height:40px;
+    border-radius: 20px;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all ease 0.3s;
+}

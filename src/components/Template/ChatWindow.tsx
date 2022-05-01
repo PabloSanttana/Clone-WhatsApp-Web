@@ -1,17 +1,18 @@
 import React from "react";
 
-import SearchIcon from "@mui/icons-material/Search";
-import styles from "../../styles/Search.module.css";
+import styles from "../../styles/ChatWindow.module.css";
+import appData from "../../data/hook/useAppData";
+import ChatHeader from "./ChatHeader";
+import ChatWindowBody from "./ChatWindowBody";
+import ChatWindowFooter from "./ChatWindowFooter";
+
 export default function ChatWindow() {
+  const { chatActive } = appData();
   return (
-    <div className={styles.search}>
-      <div className={styles.search__input}>
-        <SearchIcon fontSize="small" style={{ color: "#919191" }} />
-        <input
-          type="search"
-          placeholder="Pesquisar ou começar uma nova conversa."
-        />
-      </div>
+    <div className={styles.chatWindow}>
+      <ChatHeader chat={chatActive} />
+      <ChatWindowBody />
+      <ChatWindowFooter />
     </div>
   );
 }

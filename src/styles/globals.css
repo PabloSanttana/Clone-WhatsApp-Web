@@ -16,3 +16,19 @@ a {
   margin: 0;
   box-sizing: border-box;
 }
+
+aside.emoji-picker-react{
+  background:none !important;
+}
+.emoji-picker-react .emoji-group::before{
+  background:none !important;
+}
+
+.emoji-picker-react .emoji-scroll-wrapper::-webkit-scrollbar{
+  width:6px;
+  width:6px;
+  border-radius:3px;
+}
+.emoji-picker-react .emoji-scroll-wrapper::-webkit-scrollbar-thumb{
+  background-color: rgba(0, 0, 0, 0.2);
+}

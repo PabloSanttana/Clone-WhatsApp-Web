@@ -56,3 +56,10 @@
     text-overflow:ellipsis;
 
 }
+
+.active{
+    background-color: #ebebeb
+}
+.active:hover{
+    background-color: #ebebeb
+}

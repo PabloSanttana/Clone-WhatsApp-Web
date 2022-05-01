@@ -4,17 +4,14 @@ import styles from "../../styles/ContentArea.module.css";
 
 import ChatIntro from "./ChatIntro";
 import ChatWindow from "./ChatWindow";
-interface ContentAreaProps {}
-
-interface Chat {
-  chatId: number;
-}
+import appData from "../../data/hook/useAppData";
 
 export default function ContentArea() {
-  const [activeChat, setActiveChat] = useState<Chat>({ chatId: 0 });
+  const { chatActive } = appData();
+
   return (
     <div className={styles.contentarea}>
-      {activeChat.chatId !== 0 ? <ChatWindow /> : <ChatIntro />}
+      {chatActive?.chatId !== undefined ? <ChatWindow /> : <ChatIntro />}
     </div>
   );
 }
