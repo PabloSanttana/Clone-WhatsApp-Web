@@ -13,7 +13,7 @@ const AppContext = createContext<AppContextProps>({});
 
 export function AppProvider(props: any) {
   const [chat, setChat] = useState<Chat>();
-  const [showChat, setShowChat] = useState(true);
+  const [showChat, setShowChat] = useState(false);
 
   function activeChat(chat: Chat) {
     setChat(chat);

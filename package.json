@@ -5,8 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "env:hmg": "cross-env ACTIVE_ENV=development",
+    "env:prod": "cross-env ACTIVE_ENV=production",
+    "start": "npm run env:hmg next dev",
+    "start:prod": "npm run env:prod next start"
   },
   "dependencies": {
     "@emotion/react": "^11.9.0",
@@ -14,15 +17,19 @@
     "@mui/icons-material": "^5.6.2",
     "@mui/material": "^5.6.3",
     "emoji-picker-react": "^3.5.1",
-    "firebase": "^9.7.0",
+    "firebase": "8.8.0",
+    "js-cookie": "^3.0.1",
     "next": "12.1.5",
     "react": "18.1.0",
     "react-dom": "18.1.0"
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.2",
     "@types/node": "17.0.30",
     "@types/react": "18.0.8",
     "@types/react-dom": "18.0.3",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.0",
     "eslint": "8.14.0",
     "eslint-config-next": "12.1.5",
     "typescript": "4.6.4"
