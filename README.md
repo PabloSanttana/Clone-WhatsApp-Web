@@ -27,11 +27,11 @@ Aplicações React  com o Framework NextJS! Além de projeto com  TypeScript e F
 
 #### Layout Web:
 
-![layout](https://github.com/PabloSanttana/Template-admin-nextJs/blob/main/public/images/pg.png)
+![layout](https://github.com/PabloSanttana/Clone-WhatsApp-Web/blob/master/public/images/12312312.png)
 
-![layout](https://github.com/PabloSanttana/Template-admin-nextJs/blob/main/public/images/pg_2.png)
+![layout](https://github.com/PabloSanttana/Clone-WhatsApp-Web/blob/master/public/images/12344.png)
 
-![layout](https://github.com/PabloSanttana/Template-admin-nextJs/blob/main/public/images/pg_3.png)
+![layout](https://github.com/PabloSanttana/Clone-WhatsApp-Web/blob/master/public/images/12456.png)
 
 ```bash
 npm run dev
