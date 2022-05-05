@@ -17,17 +17,19 @@ export default function ItemList(props: ItemListProps) {
     >
       <img
         className={styles.itemList__avatar}
-        src={props.data.image}
+        src={props.data.image!}
         alt="avatar"
       />
       <div className={styles.itemList__lines}>
         <div className={styles.itemList__line}>
           <div className={styles.itemList__name}>{props.data.title}</div>
-          <div className={styles.itemList__date}>00:00</div>
+          <div className={styles.itemList__date}>
+            {props.data.lastMessageDate}
+          </div>
         </div>
         <div className={styles.itemList__line}>
           <div className={styles.itemList__lastMsg}>
-            <p>Opa, Tudo bem?</p>
+            <p>{props.data.lastMessage}</p>
           </div>
         </div>
       </div>

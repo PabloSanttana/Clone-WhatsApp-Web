@@ -1,4 +1,4 @@
-export default interface Chat {
+export default interface User {
   id: string | null;
   name: string | null;
   avatar: string | null;

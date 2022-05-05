@@ -1,5 +1,8 @@
 export default interface Chat {
-  chatId: number;
-  title: string;
-  image: string;
+  chatId: string | null;
+  image: string | null;
+  title: string | null;
+  with: string | null;
+  lastMessage: string | null;
+  lastMessageDate: any;
 }

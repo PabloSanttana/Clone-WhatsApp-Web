@@ -16,7 +16,7 @@ export default function ChatHeader(props: ChatHeaderProps) {
       <div className={styles.header__info}>
         <img
           className={styles.header__avatar}
-          src={props.chat?.image}
+          src={props.chat?.image!}
           alt="avatar"
         />
         <span>{props.chat?.title}</span>

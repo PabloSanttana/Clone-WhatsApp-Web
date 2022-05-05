@@ -5,11 +5,14 @@ import CloseIcon from "@mui/icons-material/Close";
 import SendIcon from "@mui/icons-material/Send";
 import AttachFileIcon from "@mui/icons-material/AttachFile";
 import MicIcon from "@mui/icons-material/Mic";
+import * as api from "../../services/api";
 
 // biblioteca dinamica
 const EmojiPicker = dynamic(() => import("emoji-picker-react"), { ssr: false });
 
 import styles from "../../styles/ChatWindowFooter.module.css";
+import useAppData from "../../data/hook/useAppData";
+import useAuth from "../../data/hook/useAuth";
 
 export default function ChatWindowFooter() {
   let recognition: any = null;
@@ -23,11 +26,12 @@ export default function ChatWindowFooter() {
   const [message, setMessage] = useState("");
   const [listening, setListening] = useState(false);
 
+  const { chatActive, usersId } = useAppData();
+  const { user } = useAuth();
+
   const onEmojiClick = (event: any, emojiObject: any) => {
     setMessage(message + emojiObject.emoji);
   };
-
-  function handleSendClick() {}
 
   function handleMicClick() {
     if (recognition !== null) {
@@ -41,6 +45,21 @@ export default function ChatWindowFooter() {
         setMessage(e.results[0][0].transcript);
       };
       recognition.start();
+    }
+  }
+
+  function handleSendClick() {
+    if (message !== "") {
+      api.sendMessage(chatActive!, user?.id!, "text", message, usersId!);
+      setMessage("");
+      setShowEmoji(false);
+    }
+  }
+
+  function handleInputKeyUp(e) {
+    let verify = e.keyCode === 13;
+    if (verify) {
+      handleSendClick();
     }
   }
 
@@ -88,6 +107,7 @@ export default function ChatWindowFooter() {
             type="text"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
+            onKeyUp={handleInputKeyUp}
           />
         </div>
 

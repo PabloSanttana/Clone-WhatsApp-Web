@@ -4,9 +4,11 @@ import Chat from "../../model/Chat";
 
 interface AppContextProps {
   chatActive?: Chat;
-  activeChat?: (chat: Chat) => void;
+  activeChat?: (Chat: Chat) => void;
   newChat?: boolean;
   HancleNewChat?: (value: boolean) => void;
+  setUsresId?: (value: string[]) => void;
+  usersId?: string[];
 }
 
 const AppContext = createContext<AppContextProps>({});
@@ -14,9 +16,10 @@ const AppContext = createContext<AppContextProps>({});
 export function AppProvider(props: any) {
   const [chat, setChat] = useState<Chat>();
   const [showChat, setShowChat] = useState(false);
+  const [usersId, setUsresId] = useState<string[]>([]);
 
-  function activeChat(chat: Chat) {
-    setChat(chat);
+  function activeChat(Chat: Chat) {
+    setChat(Chat);
   }
   function HancleNewChat(value: boolean) {
     setShowChat(value);
@@ -28,6 +31,8 @@ export function AppProvider(props: any) {
         activeChat,
         newChat: showChat,
         HancleNewChat,
+        setUsresId,
+        usersId,
       }}
     >
       {props.children}

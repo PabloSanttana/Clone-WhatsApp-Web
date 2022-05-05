@@ -5,42 +5,21 @@ import styles from "../../styles/ChatList.module.css";
 
 import appData from "../../data/hook/useAppData";
 import Chat from "../../model/Chat";
+import * as api from "../../services/api";
+import useAuth from "../../data/hook/useAuth";
 
 export default function ChatList() {
-  const [lists, setLists] = useState<Chat[]>([
-    {
-      chatId: 1,
-      title: "Fulano de Tal 1",
-      image: "https://www.w3schools.com/howto/img_avatar.png",
-    },
-    {
-      chatId: 2,
-      title: "Fulano de Tal 2",
-      image: "https://www.w3schools.com/howto/img_avatar.png",
-    },
-    {
-      chatId: 3,
-      title: "Fulano de Tal 3",
-      image: "https://www.w3schools.com/howto/img_avatar.png",
-    },
-    {
-      chatId: 4,
-      title: "Fulano de Tal 4",
-      image: "https://www.w3schools.com/howto/img_avatar.png",
-    },
-    {
-      chatId: 5,
-      title: "Fulano de Tal 5",
-      image: "https://www.w3schools.com/howto/img_avatar.png",
-    },
-    {
-      chatId: 6,
-      title: "Fulano de Tal 6",
-      image: "https://www.w3schools.com/howto/img_avatar.png",
-    },
-  ]);
+  const [lists, setLists] = useState<Chat[]>([]);
 
   const { activeChat, chatActive } = appData();
+  const { user } = useAuth();
+
+  useEffect(() => {
+    if (user !== null) {
+      let unSub = api.onChatsList(user?.id!, setLists);
+      return unSub;
+    }
+  }, [user]);
 
   function handleSelectChat(item: Chat) {
     activeChat?.(item);

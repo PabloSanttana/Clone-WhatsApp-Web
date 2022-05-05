@@ -27,7 +27,6 @@ export function AuthProvider(props: any) {
       setUser(response);
       router.push("/");
     } finally {
-      console.log("error");
       setLoading(false);
     }
   }
